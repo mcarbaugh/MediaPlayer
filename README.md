@@ -12,4 +12,4 @@ CSCore (https://github.com/filoe/cscore) <br>
 Taglib-Sharp (https://github.com/mono/taglib-sharp)
 
 #### Main Screen:
-![alt text](https://github.com/mcarbaugh/MediaPlayer/blob/master/screenshots/media_player.jpg?raw=true)
+![alt text](https://github.com/mcarbaugh/MediaPlayer/blob/master/screenshots/media_player.png?raw=true)
