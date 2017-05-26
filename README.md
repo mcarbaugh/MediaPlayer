@@ -5,7 +5,7 @@ in the future.
 #### Technology Stack:
 Windows Presentation Foundation (WPF) <br>
 Model-View-ViewModel (MVVM) <br>
-SQL Server (Future) <br>
+SQL Server (Future Work) <br>
 
 #### Libraries and Dependencies:
 CSCore (https://github.com/filoe/cscore) <br>
