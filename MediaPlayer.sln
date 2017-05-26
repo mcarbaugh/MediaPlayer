@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.BusinessLogic", "MediaPlayer.BusinessLogic\MediaPlayer.BusinessLogic.csproj", "{D3A2698E-4759-4BB4-A193-1F895D4FE2E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.DataAccess", "MediaPlayer.DataAccess\MediaPlayer.DataAccess.csproj", "{1E385718-8D92-4BD7-910F-FAEF245708D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.UserInterface", "MediaPlayer.UserInterface\MediaPlayer.UserInterface.csproj", "{3F133B0B-EDA9-486C-9C62-F8EB95CD8242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.DataContracts", "MediaPlayer.DataContracts\MediaPlayer.DataContracts.csproj", "{F9AEF3BB-9A8B-4DCC-AC97-A38C3BBCA50D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.BaseClasses", "MediaPlayer.BaseClasses\MediaPlayer.BaseClasses.csproj", "{9BA7B95D-7F21-4B70-9215-6F1227D86A18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.DataAccess.Contracts", "MediaPlayer.DataAccess.Contracts\MediaPlayer.DataAccess.Contracts.csproj", "{B0327856-66ED-4E7B-B602-AF20FB3E663F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.BusinessLogic.Tests", "MediaPlayer.BusinessLogic.Tests\MediaPlayer.BusinessLogic.Tests.csproj", "{D9BE3B51-C635-4F6E-90FB-E2844A53D2B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3A2698E-4759-4BB4-A193-1F895D4FE2E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A2698E-4759-4BB4-A193-1F895D4FE2E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A2698E-4759-4BB4-A193-1F895D4FE2E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A2698E-4759-4BB4-A193-1F895D4FE2E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E385718-8D92-4BD7-910F-FAEF245708D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E385718-8D92-4BD7-910F-FAEF245708D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E385718-8D92-4BD7-910F-FAEF245708D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E385718-8D92-4BD7-910F-FAEF245708D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F133B0B-EDA9-486C-9C62-F8EB95CD8242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F133B0B-EDA9-486C-9C62-F8EB95CD8242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F133B0B-EDA9-486C-9C62-F8EB95CD8242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F133B0B-EDA9-486C-9C62-F8EB95CD8242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AEF3BB-9A8B-4DCC-AC97-A38C3BBCA50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AEF3BB-9A8B-4DCC-AC97-A38C3BBCA50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AEF3BB-9A8B-4DCC-AC97-A38C3BBCA50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AEF3BB-9A8B-4DCC-AC97-A38C3BBCA50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA7B95D-7F21-4B70-9215-6F1227D86A18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA7B95D-7F21-4B70-9215-6F1227D86A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA7B95D-7F21-4B70-9215-6F1227D86A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA7B95D-7F21-4B70-9215-6F1227D86A18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0327856-66ED-4E7B-B602-AF20FB3E663F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0327856-66ED-4E7B-B602-AF20FB3E663F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0327856-66ED-4E7B-B602-AF20FB3E663F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0327856-66ED-4E7B-B602-AF20FB3E663F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9BE3B51-C635-4F6E-90FB-E2844A53D2B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9BE3B51-C635-4F6E-90FB-E2844A53D2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9BE3B51-C635-4F6E-90FB-E2844A53D2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9BE3B51-C635-4F6E-90FB-E2844A53D2B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://mcarbaugh.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MediaPlayer.BaseClasses\\MediaPlayer.BaseClasses.csproj
+		SccProjectName1 = MediaPlayer.BaseClasses
+		SccLocalPath1 = MediaPlayer.BaseClasses
+		SccProjectUniqueName2 = MediaPlayer.BusinessLogic.Tests\\MediaPlayer.BusinessLogic.Tests.csproj
+		SccProjectName2 = MediaPlayer.BusinessLogic.Tests
+		SccLocalPath2 = MediaPlayer.BusinessLogic.Tests
+		SccProjectUniqueName3 = MediaPlayer.BusinessLogic\\MediaPlayer.BusinessLogic.csproj
+		SccProjectName3 = MediaPlayer.BusinessLogic
+		SccLocalPath3 = MediaPlayer.BusinessLogic
+		SccProjectUniqueName4 = MediaPlayer.DataAccess.Contracts\\MediaPlayer.DataAccess.Contracts.csproj
+		SccProjectName4 = MediaPlayer.DataAccess.Contracts
+		SccLocalPath4 = MediaPlayer.DataAccess.Contracts
+		SccProjectUniqueName5 = MediaPlayer.DataAccess\\MediaPlayer.DataAccess.csproj
+		SccProjectName5 = MediaPlayer.DataAccess
+		SccLocalPath5 = MediaPlayer.DataAccess
+		SccProjectUniqueName6 = MediaPlayer.DataContracts\\MediaPlayer.DataContracts.csproj
+		SccProjectName6 = MediaPlayer.DataContracts
+		SccLocalPath6 = MediaPlayer.DataContracts
+		SccProjectUniqueName7 = MediaPlayer.UserInterface\\MediaPlayer.UserInterface.csproj
+		SccProjectName7 = MediaPlayer.UserInterface
+		SccLocalPath7 = MediaPlayer.UserInterface
+	EndGlobalSection
+EndGlobal

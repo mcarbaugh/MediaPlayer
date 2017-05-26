@@ -1,0 +1,107 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MediaPlayer.UserInterface.View.NamedControlStyles">
+
+    <Style TargetType="Button" BasedOn="{StaticResource ResourceKey=ControlButtonStyle}" x:Key="PlayButtonStyle">
+        <Setter Property="Content" Value="{DynamicResource ResourceKey=PlayButtonDefault}"/>
+        <Style.Triggers>
+            <!-- Triggers for Stopped State-->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Stopped"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PlayButtonMouseOver}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Stopped"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsPressed}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PlayButtonDefault}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Stopped"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="False"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PlayButtonDefault}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+
+            <!-- Triggers for Paused State-->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Paused"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PlayButtonMouseOver}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Paused"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsPressed}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PlayButtonDefault}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Paused"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="False"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PlayButtonDefault}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <!-- Triggers for Playing State-->
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Playing"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PauseButtonMouseOver}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Playing"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="True"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsPressed}" Value="True"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PauseButtonDefault}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding MusicPlayer.PlaybackState}" Value="Playing"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" Value="False"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Content" Value="{DynamicResource ResourceKey=PauseButtonDefault}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MediaPlayer.UserInterface.View.NamedControlStyles">
+
+    <Style TargetType="MenuItem" x:Key="PlayPauseMenuItem" >
+        <Setter Property="Header" Value="Play"/>
+        <Setter Property="Margin" Value="2,2,2,0"/>
+        <Setter Property="Padding" Value="7,2"/>
+        <Setter Property="Foreground" Value="Black"/>        
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding MusicPlayer.PlaybackState}" Value="Playing">
+                <Setter Property="Header" Value="Pause"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

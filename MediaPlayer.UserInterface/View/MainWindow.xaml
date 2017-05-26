@@ -1,0 +1,295 @@
+﻿<Window x:Class="MediaPlayer.UserInterface.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediaPlayer.UserInterface.View"
+        mc:Ignorable="d" 
+        Height="768" Width="1200"
+        MinHeight="500" MinWidth="750"
+        WindowState="Normal"
+        WindowStartupLocation="Manual"
+        Top="25" Left="25"
+        Background="{StaticResource ResourceKey=ApplicationBackgroundBrush}"
+        WindowChrome.IsHitTestVisibleInChrome="False"
+        x:Name="ThisWindow" SizeToContent="Manual" Closed="ThisWindow_Closed">
+    <WindowChrome.WindowChrome>
+        <WindowChrome UseAeroCaptionButtons="False" GlassFrameThickness="0" CaptionHeight="36" CornerRadius="0" ResizeBorderThickness="3" NonClientFrameEdges="None"/>
+    </WindowChrome.WindowChrome>
+    <Window.InputBindings>
+        <KeyBinding Key="Space" Command="{Binding TogglePlayButtonCommand}" CommandParameter="Shortcut [Spacebar]"/>
+        <KeyBinding Key="Left" Command="{Binding PlayPreviousSongCommand}" CommandParameter="Shortcut [Left Arrow]"/>
+        <KeyBinding Key="Right" Command="{Binding PlayNextSongCommand}" CommandParameter="Shortcut [Right Arrow]"/>
+        <KeyBinding Key="O" Modifiers="Ctrl" Command="{Binding AddSongsByFileCommand}" CommandParameter="Shortcut [Ctrl+O]"/>
+        <KeyBinding Key="O" Modifiers="Ctrl+Shift" Command="{Binding AddSongsByDirectoryCommand}" CommandParameter="Shortcut [Ctrl+Shift+O]"/>
+    </Window.InputBindings>
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ListViewItem" BasedOn="{StaticResource MediaPlayerListViewItemStyle}">
+                <EventSetter Event="MouseDoubleClick" Handler="SongList_MouseDoubleClick"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border>
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBorderBrush}"/>
+                <Setter Property="Background" Value="{StaticResource SectionBackgroundBrush}"/>
+                <Setter Property="Padding" Value="5,0"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding ElementName=ThisWindow, Path=WindowState}" Value="Maximized">
+                        <Setter Property="BorderThickness" Value="7"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="{StaticResource ResourceKey=SectionBackgroundBrush}" x:Name="HeaderContainer">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0" LastChildFill="False">
+                    <TextBlock Text="Media Player" Style="{StaticResource TitleTextStyle}" DockPanel.Dock="Left"/>
+                    <Button DockPanel.Dock="Right" Content="r" Style="{StaticResource ApplicationControlButtonStyle}" Command="{Binding CloseApplicationCommand}"/>
+                    <Button DockPanel.Dock="Right" Command="{Binding MaximizeApplicationCommand}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource ApplicationControlButtonStyle}">
+                                <Setter Property="Content" Value="1"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ThisWindow, Path=WindowState}" Value="Maximized">
+                                        <Setter Property="Content" Value="2"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button DockPanel.Dock="Right" Content="0" Style="{StaticResource ApplicationControlButtonStyle}" Command="{Binding MinimizeApplicationCommand}"/>
+                </DockPanel>
+                <Grid Grid.Row="1">
+                    <Menu>
+                        <MenuItem Header="_File">
+                            <MenuItem Header="Add Songs"
+                                          Foreground="Black"  
+                                          Command="{Binding Path=AddSongsByFileCommand}" 
+                                          InputGestureText="Ctrl+O"/>
+                            <MenuItem Header="Add Folder"
+                                          Foreground="Black"    
+                                          Command="{Binding Path=AddSongsByDirectoryCommand}" 
+                                          InputGestureText="Ctrl+Shift+O"/>
+                            <Separator/>
+                            <MenuItem Header="Import" Foreground="Black" Command="{Binding DisabledCommand}"/>
+                            <Separator/>
+                            <MenuItem Header="Exit" Foreground="Black" Command="{Binding CloseApplicationCommand}"/>
+                        </MenuItem>
+                        <MenuItem Header="_Edit">
+                            <MenuItem Header="Preferences" Foreground="Black"/>
+                        </MenuItem>
+                        <MenuItem Header="_Playback">
+                            <MenuItem Foreground="Black" Command="{Binding TogglePlayButtonCommand}" Style="{StaticResource PlayPauseMenuItem}" InputGestureText="Space"/>
+                            <Separator/>
+                            <MenuItem Header="_Next" 
+                                          Foreground="Black" 
+                                          Command="{Binding PlayNextSongCommand}"
+                                          InputGestureText="Right"/>
+                            <MenuItem Header="_Previous" 
+                                          Foreground="Black"  
+                                          Command="{Binding PlayPreviousSongCommand}"
+                                          InputGestureText="Left"/>
+                        </MenuItem>
+                        <MenuItem Header="_Help">
+                            <MenuItem Header="About" Foreground="Black" Command="{Binding DisabledCommand}"/>
+                        </MenuItem>
+                    </Menu>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="ContentContainer">
+                <ListView x:Name="SongList"
+                          ItemsSource="{Binding AllSongs, Mode=OneWay, NotifyOnSourceUpdated=True}" 
+                          SelectedItem="{Binding SelectedSong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" 
+                          SelectionMode="Single">
+                    <ListView.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding PlaySelectedSongCommand}" CommandParameter="Shortcut [Enter]"/>
+                        <KeyBinding Key="Space" Command="{Binding TogglePlayButtonCommand}" CommandParameter="Shortcut [Space]"/>
+                        <KeyBinding Key="Left" Command="{Binding PlayPreviousSongCommand}" CommandParameter="Shortcut [Left Arrow]"/>
+                        <KeyBinding Key="Right" Command="{Binding PlayNextSongCommand}" CommandParameter="Shortcut [Right Arrow]"/>
+                        <KeyBinding Key="O" Modifiers="Ctrl" Command="{Binding AddSongsByFileCommand}" CommandParameter="Shortcut [Ctrl+O]"/>
+                        <KeyBinding Key="O" Modifiers="Ctrl+Shift" Command="{Binding AddSongsByDirectoryCommand}" CommandParameter="Shortcut [Ctrl+Shift+O]"/>
+                    </ListView.InputBindings>
+                    <ListView.View>
+                        <GridView AllowsColumnReorder="False">
+                            <GridViewColumn x:Name="BufferColumn"  Width="10">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text=""/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Title"  DisplayMemberBinding="{Binding Title, Mode=OneWay}" Width="Auto"/>
+                            <GridViewColumn Width="10">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text=""/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Album"  DisplayMemberBinding="{Binding Album, Mode=OneWay}" Width="Auto"/>
+                            <GridViewColumn Width="10">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text=""/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Artist" DisplayMemberBinding="{Binding Artist, Mode=OneWay}" Width="Auto"/>
+                            <GridViewColumn Width="10">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text=""/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Length" DisplayMemberBinding="{Binding Length, Mode=OneWay}" Width="Auto"/>
+                            <GridViewColumn Width="10">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text=""/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="Auto"/>
+                            <GridViewColumn Width="10">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text=""/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Year" DisplayMemberBinding="{Binding Year}" Width="Auto"/>
+                            <GridViewColumn Width="10">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text=""/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Format" DisplayMemberBinding="{Binding Format, Mode=OneWay}" Width="Auto"/>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Play" 
+                                      Style="{StaticResource SongListContextMenuItem}"
+                                      Command="{Binding Path=PlaySelectedSongCommand}"/>
+                            <MenuItem Header="Add To Queue" 
+                                      Style="{StaticResource SongListContextMenuItem}"/>
+                            <Separator Style="{StaticResource ContextMenuSeparator}"/>
+                            <MenuItem Header="Remove" Style="{StaticResource SongListContextMenuItem}"
+                                      Command="{Binding RemoveSelectedSongfromLibraryCommand}"/>
+                            <Separator Style="{StaticResource ContextMenuSeparator}"/>
+                            <MenuItem Header="Info" Style="{StaticResource SongListContextMenuItem}"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="2" x:Name="FooterContainer" Height="Auto" Width="Auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Background="{StaticResource ResourceKey=SectionBackgroundBrush}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource ResourceKey=PreviousButtonStyle}" Command="{Binding PlayPreviousSongCommand}"/>
+                    <Button Style="{StaticResource ResourceKey=PlayButtonStyle}" Command="{Binding TogglePlayButtonCommand}"/>
+                    <Button Style="{StaticResource ResourceKey=NextButtonStyle}" Command="{Binding PlayNextSongCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

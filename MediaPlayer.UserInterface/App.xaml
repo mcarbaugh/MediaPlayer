@@ -1,0 +1,49 @@
+﻿<Application x:Class="MediaPlayer.UserInterface.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MediaPlayer.UserInterface.View"
+             xmlns:vm="clr-namespace:MediaPlayer.UserInterface.ViewModel"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="60" Width="60" x:Key="PlayButtonDefault" Source="Images\play_button.png" />
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="60" Width="60" x:Key="PlayButtonMouseOver" Source="Images\play_button_mouse_over.png"/>
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="60" Width="60" x:Key="PauseButtonDefault" Source="Images\pause_button.png"/>
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="60" Width="60" x:Key="PauseButtonMouseOver" Source="Images\pause_button_mouse_over.png"/>
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="40" Width="40" x:Key="PreviousButtonDefault" Source="Images\previous_button.png"/>
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="40" Width="40" x:Key="PreviousButtonMouseOver" Source="Images\previous_button_mouse_over.png"/>
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="40" Width="40" x:Key="NextButtonDefault" Source="Images\next_button.png" />
+            <Image SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="Fant" RenderOptions.EdgeMode="Aliased" Stretch="Fill" Height="40" Width="40" x:Key="NextButtonMouseOver" Source="Images\next_button_mouse_over.png"/>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Brushes -->
+                <ResourceDictionary Source="View\Brushes\ApplicationBackground.xaml"/>
+                <ResourceDictionary Source="View\Brushes\ButtonBackground.xaml"/>
+                <ResourceDictionary Source="View\Brushes\DefaultText.xaml"/>
+                <ResourceDictionary Source="View\Brushes\MouseOverHighlight.xaml"/>
+                <ResourceDictionary Source="View\Brushes\SectionBackground.xaml"/>
+                <ResourceDictionary Source="View\Brushes\DarkHighlight.xaml"/>
+                <ResourceDictionary Source="View\Brushes\AccentBorder.xaml"/>
+                <ResourceDictionary Source="View\Brushes\ApplicationRed.xaml"/>
+                
+                <!-- Default Control Styles -->
+                <ResourceDictionary Source="View\DefaultControlStyles\Menu.xaml"/>
+                <ResourceDictionary Source="View\DefaultControlStyles\MenuItem.xaml"/>
+                <ResourceDictionary Source="View\DefaultControlStyles\ScrollViewer.xaml"/>
+                <ResourceDictionary Source="View\DefaultControlStyles\ListView.xaml"/>
+                <ResourceDictionary Source="View\DefaultControlStyles\ContextMenu.xaml"/>
+
+                <!-- NamedControl Styles -->
+                <ResourceDictionary Source="View\NamedControlStyles\PlayPauseMenuItem.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\ControlButtonStyle.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\PlayButtonStyle.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\PreviousButtonStyle.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\NextButtonStyle.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\SongListContextMenuItemStyle.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\ContextMenuSeparator.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\TitleTextStyle.xaml"/>
+                <ResourceDictionary Source="View\NamedControlStyles\ApplicationControlButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MediaPlayer.UserInterface.View.ResourceDictionaries">
+
+    <Style x:Key="ContentTextBox" TargetType="TextBox">
+        <Setter Property="FontFamily" Value="Segoe UI Semilight"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="8,4"/>
+        <Setter Property="Foreground" Value="{StaticResource DefaultTextBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Background" Value="{StaticResource ApplicationBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DefaultTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+</ResourceDictionary>
