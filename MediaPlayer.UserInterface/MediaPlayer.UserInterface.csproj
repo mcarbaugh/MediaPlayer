@@ -266,10 +266,6 @@
       <Project>{9ba7b95d-7f21-4b70-9215-6f1227d86a18}</Project>
       <Name>MediaPlayer.BaseClasses</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MediaPlayer.BusinessLogic\MediaPlayer.BusinessLogic.csproj">
-      <Project>{d3a2698e-4759-4bb4-a193-1f895d4fe2e5}</Project>
-      <Name>MediaPlayer.BusinessLogic</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MediaPlayer.DataContracts\MediaPlayer.DataContracts.csproj">
       <Project>{f9aef3bb-9a8b-4dcc-ac97-a38c3bbca50d}</Project>
       <Name>MediaPlayer.DataContracts</Name>

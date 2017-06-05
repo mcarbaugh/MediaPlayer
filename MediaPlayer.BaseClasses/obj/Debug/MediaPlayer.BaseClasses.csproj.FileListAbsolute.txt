@@ -1,0 +1,5 @@
+C:\Dev\MediaPlayer\MediaPlayer.BaseClasses\bin\Debug\MediaPlayer.BaseClasses.dll
+C:\Dev\MediaPlayer\MediaPlayer.BaseClasses\bin\Debug\MediaPlayer.BaseClasses.pdb
+C:\Dev\MediaPlayer\MediaPlayer.BaseClasses\obj\Debug\MediaPlayer.BaseClasses.csprojResolveAssemblyReference.cache
+C:\Dev\MediaPlayer\MediaPlayer.BaseClasses\obj\Debug\MediaPlayer.BaseClasses.dll
+C:\Dev\MediaPlayer\MediaPlayer.BaseClasses\obj\Debug\MediaPlayer.BaseClasses.pdb
