@@ -1,7 +1,0 @@
-C:\Dev\MediaPlayer\MediaPlayer.DataContracts\bin\Debug\MediaPlayer.DataContracts.dll
-C:\Dev\MediaPlayer\MediaPlayer.DataContracts\bin\Debug\MediaPlayer.DataContracts.pdb
-C:\Dev\MediaPlayer\MediaPlayer.DataContracts\bin\Debug\MediaPlayer.BaseClasses.dll
-C:\Dev\MediaPlayer\MediaPlayer.DataContracts\bin\Debug\MediaPlayer.BaseClasses.pdb
-C:\Dev\MediaPlayer\MediaPlayer.DataContracts\obj\Debug\MediaPlayer.DataContracts.csprojResolveAssemblyReference.cache
-C:\Dev\MediaPlayer\MediaPlayer.DataContracts\obj\Debug\MediaPlayer.DataContracts.dll
-C:\Dev\MediaPlayer\MediaPlayer.DataContracts\obj\Debug\MediaPlayer.DataContracts.pdb
